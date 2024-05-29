@@ -1,10 +1,6 @@
-import { signIn } from "@/lib/auth"
-
+import { handleGithubLogin } from "@/lib/actions"
 const LogIn = async () => {
-  const handleGithubLogin = async () => {
-    "use server"
-    await signIn("github")
-  }
+ 
   return (
     <div>
       <form action={handleGithubLogin}>

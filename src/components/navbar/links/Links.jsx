@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import styles from "./links.module.css";
-import NavLink from "@/components/navbar/navLink/NavLink"
+import NavLink from "../navLink/NavLink";
 import Image from "next/image";
-// import { handleLogout } from "@/lib/action";
-
+import { handleLogout } from "@/lib/actions";
 const links = [
   {
     title: "Home",
@@ -41,9 +40,9 @@ const Links = ({session}) => {
         {session?.user ? (
           <>
             {session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-            {/* <form action={handleLogout}> */}
+            <form action={handleLogout}>
               <button className={styles.logout}>Logout</button>
-            {/* </form> */}
+            </form>
           </>
         ) : (
           <NavLink item={{ title: "Login", path: "/login" }} />
