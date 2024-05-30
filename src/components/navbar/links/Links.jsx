@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import styles from "./links.module.css";
-import NavLink from "../navLink/NavLink";
+import NavLink from "./navLink/NavLink";
 import Image from "next/image";
 import { handleLogout } from "@/lib/actions";
+
 const links = [
   {
     title: "Home",
