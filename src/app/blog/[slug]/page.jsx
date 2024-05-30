@@ -6,7 +6,7 @@ import { getPost } from "@/lib/data";
 
 // FETCH DATA WITH AN API
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/blog/post/${slug}`);
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
 
   if (!res.ok) {
     throw new Error("Something went wrong");
@@ -15,16 +15,16 @@ const getData = async (slug) => {
   return res.json();
 };
 
-// export const generateMetadata = async ({ params }) => {
-//   const { slug } = params;
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params;
 
-//   const post = await getPost(slug);
+  const post = await getPost(slug);
 
-//   return {
-//     title: post.title,
-//     description: post.desc,
-//   };
-// };
+  return {
+    title: post.title,
+    description: post.desc,
+  };
+};
 
 const SinglePostPage = async ({ params }) => {
   const { slug } = params;
