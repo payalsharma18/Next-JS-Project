@@ -4,9 +4,9 @@ import RegisterForm from '@/components/registerForm/registerForm';
 const RegisterPage = () => {
   return (
     <div className={styles.container}>
-        <div className={styles.wrapper}>
-<RegisterForm></RegisterForm>
-        </div>
+      <div className={styles.wrapper}>
+        <RegisterForm></RegisterForm>
+      </div>
     </div>
   )
 }

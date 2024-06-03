@@ -20,6 +20,11 @@ const links = [
     path: "/contact",
   },
   {
+    title : "Photos",
+    path : "/images",
+  
+  },
+  {
     title: "Blog",
     path: "/blog",
   },

@@ -24,6 +24,7 @@ export const addPost = async (prevState,formData) => {
     });
 
     await newPost.save();
+    formData= {};
     console.log("saved to db");
     revalidatePath("/blog");
     revalidatePath("/admin");
@@ -62,6 +63,7 @@ export const addUser = async (prevState,formData) => {
     });
 
     await newUser.save();
+    formData= {};
     console.log("saved to db");
     revalidatePath("/admin");
   } catch (err) {
@@ -96,9 +98,15 @@ export const handleLogout = async () => {
   await signOut();
 };
 
+// export const handleGoogleLogin = async () => {
+//   "use server";
+//   await signIn("google");
+// };
+
+
 export const register = async (previousState, formData) => {
-  const { username, email, password, img, passwordRepeat } =
-    Object.fromEntries(formData);
+  const { username, email, password, passwordRepeat } = formData
+    // Object.fromEntries(formData);
 
   if (password !== passwordRepeat) {
     return { error: "Passwords do not match" };
@@ -120,7 +128,7 @@ export const register = async (previousState, formData) => {
       username,
       email,
       password: hashedPassword,
-      img,
+      
     });
 
     await newUser.save();
@@ -134,7 +142,7 @@ export const register = async (previousState, formData) => {
 };
 
 export const login = async (prevState, formData) => {
-  const { username, password } = Object.fromEntries(formData);
+  const { username, password } = formData;
 
   try {
     await signIn("credentials", { username, password });

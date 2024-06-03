@@ -13,16 +13,17 @@ const AboutPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
-        <h2 className={styles.subtitle}>About Agency</h2>
+        {/* <h2 className={styles.subtitle}>About Agency</h2> */}
         <h1 className={styles.title}>
-          We create digital ideas that are bigger, bolder, braver and better.
+          Welcome to our blog app! We're thrilled to have you here.
+
         </h1>
         <p className={styles.desc}>
-          We create digital ideas that are bigger, bolder, braver and better. We
-          believe in good ideas flexibility and precission We’re world’s Our
-          Special Team best consulting & finance solution provider. Wide range
-          of web and software development services.
-        </p>
+          Our mission is to provide a platform where individuals can 
+          share their thoughts, ideas, and stories with the world. 
+          We believe in the power of storytelling and its ability to 
+          inspire, educate, and connect people from all walks of life.       
+           </p>
         <div className={styles.boxes}>
           <div className={styles.box}>
             <h1>10 K+</h1>
@@ -42,6 +43,7 @@ const AboutPage = () => {
         <Image
           src="/about.png"
           alt="About Image"
+          loading="lazy"
           fill
           className={styles.img}
         />

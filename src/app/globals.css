@@ -1,5 +1,7 @@
 :root {
     --bg: #0d0c22;
+    /* background: rgb(25,0,36);
+    background: linear-gradient(90deg, rgba(25,0,36,1) 0%, rgba(17,112,169,1) 100%, rgba(255,0,254,1) 100%);     */
     --bgSoft: #2d2b42;
     --text: white;
     --textSoft: #e5e5e5;

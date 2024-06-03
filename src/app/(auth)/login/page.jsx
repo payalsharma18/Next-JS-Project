@@ -1,4 +1,4 @@
-import { handleGithubLogin } from "@/lib/actions"
+import { handleGithubLogin, handleGoogleLogin } from "@/lib/actions"
 // import { login } from "@/lib/actions"
 import styles from "./login.module.css";
 import LoginForm from "@/components/loginForm/LoginForm"

@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
       default: false,
     },
   },
-  { timestamps: true }
+  // { timestamps: true }
 );
 
 const postSchema = new mongoose.Schema(
@@ -52,8 +52,8 @@ const postSchema = new mongoose.Schema(
       unique: true,
     },
   },
-  { timestamps: true }
+  // { timestamps: true }
 );
-
+//if there is userinside use it or create a new one
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const Post = mongoose.models?.Post || mongoose.model("Post", postSchema);
