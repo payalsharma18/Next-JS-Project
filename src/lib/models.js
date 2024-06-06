@@ -54,6 +54,6 @@ const postSchema = new mongoose.Schema(
   },
   // { timestamps: true }
 );
-//if there is userinside use it or create a new one
+//if there is user inside use it or create a new one
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const Post = mongoose.models?.Post || mongoose.model("Post", postSchema);

@@ -9,7 +9,7 @@
 
 //     const router = useRouter();
 //     const [state, formAction] = useFormState(register, undefined);
-  
+
 //     useEffect(() => {
 //         state?.success && router.push("/login");
 //     }, [state?.success, router]);
@@ -58,9 +58,10 @@ const RegisterForm = () => {
         const fieldErrors = validateField(name, value);
         setErrors({
             ...errors,
-            ...fieldErrors,
+            [name]: fieldErrors[name] ? fieldErrors[name] : '', // Set error message or empty string if field is now valid
         });
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -85,10 +86,11 @@ const RegisterForm = () => {
             case "username":
                 if (!value.trim()) {
                     fieldErrors[name] = "Username is required";
-                } else if (!/^[a-zA-Z0-9_-]{5,15}$/.test(value)) {
-                    fieldErrors[name] = "Username must be 5 to 15 characters long and can contain only letters, numbers, hyphens, and underscores";
+                } else if (!/^[a-zA-Z0-9_\-\s]{5,15}$/.test(value)) {
+                    fieldErrors[name] = "Username must be 5 to 15 characters long and can contain only letters, numbers, hyphens, underscores, and spaces";
                 }
                 break;
+
             case "email":
                 if (!value.trim()) {
                     fieldErrors[name] = "Email is required";

@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const ImagesPage = () => {
-  const [images, setImages] = useState([]);
-  const imageContainerRef = useRef(null);
+  const [images, setImages] = useState([]);  // State to store the fetched images
+  const imageContainerRef = useRef(null); // Reference to the container div element
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +23,7 @@ const ImagesPage = () => {
   }, []);
 
   useEffect(() => {
+     // Create IntersectionObserver with specified root margin
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -31,20 +32,22 @@ const ImagesPage = () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { rootMargin: "0px 0px 50px 0px" }); // Adjust the rootMargin as needed
+    }, { rootMargin: "0px 0px 0px 0px" }); // Adjust the rootMargin as needed
 
+    // Observe image elements within the container
     if (imageContainerRef.current) {
       const imageElements = imageContainerRef.current.querySelectorAll("img[data-src]");
       imageElements.forEach((img) => observer.observe(img));
     }
 
+    // Cleanup function to unobserve image elements when component unmounts
     return () => {
       if (imageContainerRef.current) {
         const imageElements = imageContainerRef.current.querySelectorAll("img[data-src]");
         imageElements.forEach((img) => observer.unobserve(img));
       }
     };
-  }, [images]);
+  }, [images]);// Run this effect whenever the images state changes
 
   return (
     <div ref={imageContainerRef} style={{display:'flex', flexWrap:'wrap',margin: "20px"}}>

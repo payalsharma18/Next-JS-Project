@@ -12,7 +12,7 @@ const AdminUserForm = () => {
       <input type="text" name="username" placeholder="username" />
       <input type="text" name="email" placeholder="email" />
       <input type="password" name="password" placeholder="password" />
-      <input type="text" name="img" placeholder="img" />
+      <input type="text" name="img" placeholder="image" />
       <select name="isAdmin">
         <option value="false">Is Admin?</option>
         <option value="false">No</option>

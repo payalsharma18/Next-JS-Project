@@ -2,7 +2,7 @@ import { Post, User } from "./models"
 import { connectToDb } from "./utils"
 import { unstable_noStore as noStore } from "next/cache";
 
-
+// Function to fetch all posts from the database
 export const getPosts = async () => {
     try {
       connectToDb();
@@ -14,6 +14,7 @@ export const getPosts = async () => {
     }
   };
   
+  // Function to fetch a single post by its slug
   export const getPost = async (slug) => {
     try {
       connectToDb();
@@ -24,9 +25,10 @@ export const getPosts = async () => {
       throw new Error("Failed to fetch post!");
     }
   };
-  
+
+  // Function to fetch a user by their ID 
   export const getUser = async (id) => {
-    noStore();
+    noStore();   // Call the noStore function to prevent caching for this function
     try {
       connectToDb();
       const user = await User.findById(id);
@@ -37,6 +39,7 @@ export const getPosts = async () => {
     }
   };
   
+  // Function to fetch all users from the database
   export const getUsers = async () => {
     try {
       connectToDb();

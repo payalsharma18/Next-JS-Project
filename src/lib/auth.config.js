@@ -32,7 +32,7 @@ export const authConfig = {
   
         // ONLY AUTHENTICATED USERS CAN REACH THE BLOG PAGE
   
-        if (isOnBlogPage && !user) {  // if the user is on the blog pagr if there is no user we will return false and rediect to login page
+        if (isOnBlogPage && !user) {  // if the user is on the blog page if there is no user we will return false and rediect to login page
           return false;
         }
   
